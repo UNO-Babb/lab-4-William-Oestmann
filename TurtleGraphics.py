@@ -1,6 +1,6 @@
 #TurtleGraphics.py
-#Name:
-#Date:
+#Name:William Oestmann
+#Date: 9/18/24
 #Assignment:
 
 import turtle #needed generally but not in CodeHS
@@ -10,6 +10,44 @@ def drawSquare(myTurtle, size):
     for i in range(4):
         myTurtle.forward(size)
         myTurtle.right(90)
+
+
+def drawPolygon(myTurtle, sides):
+    for i in range(sides):
+        myTurtle.forward(50)
+        myTurtle.right(360 / sides)
+
+
+def fillCorner(myTurtle, corner):
+    drawSquare(myTurtle, 100) #square of size 100
+    myTurtle.up()
+    if corner == 1:
+        myTurtle.goto(0,0)
+    elif corner == 2:
+        myTurtle.goto(50,0)
+    elif corner == 3:
+        myTurtle.goto(50,-50)
+    elif corner == 4:
+        myTurtle.goto(0,-50)
+    myTurtle.down()
+    myTurtle.begin_fill()
+    drawSquare(myTurtle, 50)
+    myTurtle.end_fill()
+
+
+def squaresInSquares(myTurtle, number):
+    x = 0
+    y = 0
+    size = 100
+    for i in range(number):
+        myTurtle.down()
+        drawSquare(myTurtle, size)
+        size = size - 10
+        myTurtle.up()
+        x = x + 5
+        y = y - 5
+        myTurtle.goto(x,y)
+        
 
 
 def main():
